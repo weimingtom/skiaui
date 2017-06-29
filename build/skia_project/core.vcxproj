@@ -311,6 +311,10 @@
     <ClInclude Include="..\..\skia\src\gpu\GrTextStrike_impl.h" />
     <ClInclude Include="..\..\skia\src\gpu\GrTHashCache.h" />
     <ClInclude Include="..\..\skia\src\gpu\GrVertexBuffer.h" />
+    <ClInclude Include="..\..\skia\src\image\SkDataPixelRef.h" />
+    <ClInclude Include="..\..\skia\src\image\SkImagePriv.h" />
+    <ClInclude Include="..\..\skia\src\image\SkImage_Base.h" />
+    <ClInclude Include="..\..\skia\src\image\SkSurface_Base.h" />
     <ClInclude Include="..\..\skia\src\ports\SkFontDescriptor.h" />
     <ClInclude Include="..\..\skia\src\sfnt\SkOTUtils.h" />
   </ItemGroup>
@@ -437,6 +441,8 @@
     <ClCompile Include="..\..\skia\src\gpu\SkGrFontScaler.cpp" />
     <ClCompile Include="..\..\skia\src\gpu\SkGrPixelRef.cpp" />
     <ClCompile Include="..\..\skia\src\gpu\SkGrTexturePixelRef.cpp" />
+    <ClCompile Include="..\..\skia\src\image\SkImage_Gpu.cpp" />
+    <ClCompile Include="..\..\skia\src\image\SkSurface_Gpu.cpp" />
     <ClCompile Include="..\..\skia\src\opts\SkBitmapProcState_opts_none.cpp" />
     <ClCompile Include="..\..\skia\src\opts\SkBlitRow_opts_none.cpp" />
     <ClCompile Include="..\..\skia\src\opts\SkUtils_opts_none.cpp" />

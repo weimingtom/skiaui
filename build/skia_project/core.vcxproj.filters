@@ -1269,6 +1269,12 @@
     <ClCompile Include="..\..\skia\src\ports\SkFontHost_sandbox_none.cpp">
       <Filter>src\ports</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\skia\src\image\SkImage_Gpu.cpp">
+      <Filter>src\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\skia\src\image\SkSurface_Gpu.cpp">
+      <Filter>src\image</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\skia\src\effects\SkBlurMask.h">
@@ -1501,6 +1507,18 @@
     </ClInclude>
     <ClInclude Include="..\..\skia\src\ports\SkFontDescriptor.h">
       <Filter>src\ports</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\skia\src\image\SkDataPixelRef.h">
+      <Filter>src\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\skia\src\image\SkImage_Base.h">
+      <Filter>src\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\skia\src\image\SkImagePriv.h">
+      <Filter>src\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\skia\src\image\SkSurface_Base.h">
+      <Filter>src\image</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
