@@ -1,5 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "core", "skia_project\core.vcxproj", "{B7760B5E-BFA8-486B-ACFD-49E3A6DE8E76}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "views", "skia_project\views.vcxproj", "{29376F93-19FC-78E1-9A9C-0A80E4412442}"
@@ -11,6 +13,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "animator", "skia_project\animator.vcxproj", "{BFE47DCA-0E22-3109-FB78-06E0D57A0A12}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "utils", "skia_project\utils.vcxproj", "{87FD8AC9-E85D-B219-71C8-12D94972F23A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "skiadraw", "..\sample\skiadraw\skiadraw.vcxproj", "{E650375F-5D1E-44DA-8A78-EA1C82CADD2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +46,10 @@ Global
 		{87FD8AC9-E85D-B219-71C8-12D94972F23A}.Debug|Win32.Build.0 = Debug|Win32
 		{87FD8AC9-E85D-B219-71C8-12D94972F23A}.Release|Win32.ActiveCfg = Release|Win32
 		{87FD8AC9-E85D-B219-71C8-12D94972F23A}.Release|Win32.Build.0 = Release|Win32
+		{E650375F-5D1E-44DA-8A78-EA1C82CADD2B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E650375F-5D1E-44DA-8A78-EA1C82CADD2B}.Debug|Win32.Build.0 = Debug|Win32
+		{E650375F-5D1E-44DA-8A78-EA1C82CADD2B}.Release|Win32.ActiveCfg = Release|Win32
+		{E650375F-5D1E-44DA-8A78-EA1C82CADD2B}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

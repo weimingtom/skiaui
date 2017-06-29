@@ -5,6 +5,7 @@
 #include "skiadraw.h"
 
 #include "SkApplication.h"
+#include "simplewindow.h"
 
 #define MAX_LOADSTRING 100
 

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -18,6 +18,12 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings" />
@@ -40,7 +46,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SkiaPath)\include\config;$(SkiaPath)\include\core;$(SkiaPath)\include\pipe;$(SkiaPath)\include\ports;$(SkiaPath)\include\utils;$(SkiaPath)\include\xml;$(SkiaPath)\src\core;$(SkiaPath)\src\image;$(SkiaPath)\gyp\config\win;$(SkiaPath)\include\gpu;$(SkiaPath)\src\gpu;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SkiaPath)\include\config;$(SkiaPath)\include\core;$(SkiaPath)\include\pipe;$(SkiaPath)\include\ports;$(SkiaPath)\include\utils;$(SkiaPath)\include\xml;$(SkiaPath)\src\core;$(SkiaPath)\src\image;$(SkiaPath)\gyp\config\win;$(SkiaPath)\include\gpu;$(SkiaPath)\src\gpu;$(SkiaPath)\src\utils;$(SkiaPath)\src\sfnt;$(SkiaPath)\include\images;$(SkiaPath)\include\effects;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <DisableSpecificWarnings>4244;4267;4345;4390;4554;4800;%(DisableSpecificWarnings)</DisableSpecificWarnings>
@@ -48,7 +54,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;SK_GAMMA_SRGB;SK_GAMMA_APPLY_TO_A8;SK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1;SK_REDEFINE_ROOT2OVER2_TO_MAKE_ARCTOS_CONVEX;SK_SCALAR_IS_FLOAT;SK_CAN_USE_FLOAT;SK_SUPPORT_GPU=1;SK_BUILD_FOR_WIN32;SK_IGNORE_STDINT_DOT_H;_CRT_SECURE_NO_WARNINGS;GR_GL_FUNCTION_TYPE=__stdcall;SK_DEBUG;GR_DEBUG=1;SK_DEVELOPER=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(OutDir)$(ProjectName).pdb</ProgramDataBaseFileName>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <TreatWarningAsError>true</TreatWarningAsError>
       <WarningLevel>Level3</WarningLevel>
@@ -230,8 +236,210 @@
     <ClInclude Include="..\..\skia\include\core\SkMMapStream.h">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="..\..\skia\src\effects\gradients\SkBitmapCache.h" />
+    <ClInclude Include="..\..\skia\src\effects\gradients\SkClampRange.h" />
+    <ClInclude Include="..\..\skia\src\effects\gradients\SkGradientShaderPriv.h" />
+    <ClInclude Include="..\..\skia\src\effects\gradients\SkLinearGradient.h" />
+    <ClInclude Include="..\..\skia\src\effects\gradients\SkRadialGradient.h" />
+    <ClInclude Include="..\..\skia\src\effects\gradients\SkRadialGradient_Table.h" />
+    <ClInclude Include="..\..\skia\src\effects\gradients\SkSweepGradient.h" />
+    <ClInclude Include="..\..\skia\src\effects\gradients\SkTwoPointConicalGradient.h" />
+    <ClInclude Include="..\..\skia\src\effects\gradients\SkTwoPointRadialGradient.h" />
+    <ClInclude Include="..\..\skia\src\effects\SkBlurMask.h" />
+    <ClInclude Include="..\..\skia\src\effects\SkEmbossMask.h" />
+    <ClInclude Include="..\..\skia\src\effects\SkEmbossMask_Table.h" />
+    <ClInclude Include="..\..\skia\src\gpu\effects\Gr1DKernelEffect.h" />
+    <ClInclude Include="..\..\skia\src\gpu\effects\GrConfigConversionEffect.h" />
+    <ClInclude Include="..\..\skia\src\gpu\effects\GrConvolutionEffect.h" />
+    <ClInclude Include="..\..\skia\src\gpu\effects\GrSingleTextureEffect.h" />
+    <ClInclude Include="..\..\skia\src\gpu\effects\GrTextureDomainEffect.h" />
+    <ClInclude Include="..\..\skia\src\gpu\effects\GrTextureStripAtlas.h" />
+    <ClInclude Include="..\..\skia\src\gpu\gl\GrGLCaps.h" />
+    <ClInclude Include="..\..\skia\src\gpu\gl\GrGLContextInfo.h" />
+    <ClInclude Include="..\..\skia\src\gpu\gl\GrGLDefines.h" />
+    <ClInclude Include="..\..\skia\src\gpu\gl\GrGLEffect.h" />
+    <ClInclude Include="..\..\skia\src\gpu\gl\GrGLEffectMatrix.h" />
+    <ClInclude Include="..\..\skia\src\gpu\gl\GrGLIndexBuffer.h" />
+    <ClInclude Include="..\..\skia\src\gpu\gl\GrGLIRect.h" />
+    <ClInclude Include="..\..\skia\src\gpu\gl\GrGLPath.h" />
+    <ClInclude Include="..\..\skia\src\gpu\gl\GrGLProgram.h" />
+    <ClInclude Include="..\..\skia\src\gpu\gl\GrGLRenderTarget.h" />
+    <ClInclude Include="..\..\skia\src\gpu\gl\GrGLShaderBuilder.h" />
+    <ClInclude Include="..\..\skia\src\gpu\gl\GrGLShaderVar.h" />
+    <ClInclude Include="..\..\skia\src\gpu\gl\GrGLSL.h" />
+    <ClInclude Include="..\..\skia\src\gpu\gl\GrGLStencilBuffer.h" />
+    <ClInclude Include="..\..\skia\src\gpu\gl\GrGLTexture.h" />
+    <ClInclude Include="..\..\skia\src\gpu\gl\GrGLUniformHandle.h" />
+    <ClInclude Include="..\..\skia\src\gpu\gl\GrGLUniformManager.h" />
+    <ClInclude Include="..\..\skia\src\gpu\gl\GrGLUtil.h" />
+    <ClInclude Include="..\..\skia\src\gpu\gl\GrGLVertexBuffer.h" />
+    <ClInclude Include="..\..\skia\src\gpu\gl\GrGpuGL.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrAAConvexPathRenderer.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrAAHairLinePathRenderer.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrAllocator.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrAllocPool.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrAtlas.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrBinHashKey.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrBufferAllocPool.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrClipMaskCache.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrClipMaskManager.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrDefaultPathRenderer.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrDrawState.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrDrawTarget.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrGeometryBuffer.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrGpu.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrGpuVertex.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrIndexBuffer.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrInOrderDrawBuffer.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrMemoryPool.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrPath.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrPathRenderer.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrPathUtils.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrPlotMgr.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrRectanizer.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrRedBlackTree.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrReducedClip.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrResourceCache.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrSoftwarePathRenderer.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrStencil.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrStencilAndCoverPathRenderer.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrStencilBuffer.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrSWMaskHelper.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrTBSearch.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrTemplates.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrTextStrike.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrTextStrike_impl.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrTHashCache.h" />
+    <ClInclude Include="..\..\skia\src\gpu\GrVertexBuffer.h" />
+    <ClInclude Include="..\..\skia\src\ports\SkFontDescriptor.h" />
+    <ClInclude Include="..\..\skia\src\sfnt\SkOTUtils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\skia\src\effects\gradients\SkBitmapCache.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\gradients\SkClampRange.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\gradients\SkGradientShader.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\gradients\SkLinearGradient.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\gradients\SkRadialGradient.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\gradients\SkSweepGradient.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\gradients\SkTwoPointConicalGradient.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\gradients\SkTwoPointRadialGradient.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\Sk1DPathEffect.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\Sk2DPathEffect.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkArithmeticMode.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkAvoidXfermode.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkBitmapSource.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkBlendImageFilter.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkBlurDrawLooper.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkBlurImageFilter.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkBlurMask.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkBlurMaskFilter.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkColorFilterImageFilter.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkColorFilters.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkColorMatrix.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkColorMatrixFilter.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkCornerPathEffect.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkDashPathEffect.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkDiscretePathEffect.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkDisplacementMapEffect.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkEmbossMask.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkEmbossMaskFilter.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkKernel33MaskFilter.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkLayerDrawLooper.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkLayerRasterizer.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkLightingImageFilter.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkMagnifierImageFilter.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkMatrixConvolutionImageFilter.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkMergeImageFilter.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkMorphologyImageFilter.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkOffsetImageFilter.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkPaintFlagsDrawFilter.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkPixelXorXfermode.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkPorterDuff.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkSingleInputImageFilter.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkStippleMaskFilter.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkTableColorFilter.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkTableMaskFilter.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkTestImageFilters.cpp" />
+    <ClCompile Include="..\..\skia\src\effects\SkTransparentShader.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\effects\GrConfigConversionEffect.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\effects\GrConvolutionEffect.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\effects\GrSingleTextureEffect.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\effects\GrTextureDomainEffect.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\effects\GrTextureStripAtlas.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\GrGLCaps.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\GrGLContextInfo.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\GrGLCreateNullInterface.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\GrGLDefaultInterface_native.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\GrGLEffect.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\GrGLEffectMatrix.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\GrGLIndexBuffer.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\GrGLInterface.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\GrGLPath.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\GrGLProgram.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\GrGLRenderTarget.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\GrGLShaderBuilder.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\GrGLSL.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\GrGLStencilBuffer.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\GrGLTexture.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\GrGLUniformManager.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\GrGLUtil.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\GrGLVertexBuffer.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\GrGpuGL.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\GrGpuGL_program.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\SkGLContext.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\SkNullGLContext.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\win\GrGLCreateNativeInterface_win.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gl\win\SkNativeGLContext_win.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrAAConvexPathRenderer.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrAAHairLinePathRenderer.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrAARectRenderer.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrAddPathRenderers_default.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrAllocPool.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrAtlas.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrBufferAllocPool.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrCacheID.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrClipData.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrClipMaskCache.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrClipMaskManager.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrContext.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrDefaultPathRenderer.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrDrawState.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrDrawTarget.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrEffect.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrGeometryBuffer.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrGpu.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrGpuFactory.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrInOrderDrawBuffer.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrMemory.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrMemoryPool.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrPath.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrPathRenderer.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrPathRendererChain.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrPathUtils.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrRectanizer.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrReducedClip.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrRenderTarget.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrResource.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrResourceCache.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrSoftwarePathRenderer.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrStencil.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrStencilAndCoverPathRenderer.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrStencilBuffer.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrSurface.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrSWMaskHelper.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrTextContext.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrTextStrike.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrTexture.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\GrTextureAccess.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\gr_unittests.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\SkGpuDevice.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\SkGr.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\SkGrFontScaler.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\SkGrPixelRef.cpp" />
+    <ClCompile Include="..\..\skia\src\gpu\SkGrTexturePixelRef.cpp" />
+    <ClCompile Include="..\..\skia\src\opts\SkBitmapProcState_opts_none.cpp" />
+    <ClCompile Include="..\..\skia\src\opts\SkBlitRow_opts_none.cpp" />
+    <ClCompile Include="..\..\skia\src\opts\SkUtils_opts_none.cpp" />
     <ClCompile Include="..\..\skia\src\pipe\SkGPipeRead.cpp" />
     <ClCompile Include="..\..\skia\src\pipe\SkGPipeWrite.cpp" />
     <ClCompile Include="..\..\skia\src\core\SkScan_Hairline.cpp" />
@@ -365,6 +573,21 @@
     <ClCompile Include="..\..\skia\src\image\SkImage_Picture.cpp" />
     <ClCompile Include="..\..\skia\src\image\SkSurface_Picture.cpp" />
     <ClCompile Include="..\..\skia\src\image\SkImage_Raster.cpp" />
+    <ClCompile Include="..\..\skia\src\ports\SkDebug_win.cpp" />
+    <ClCompile Include="..\..\skia\src\ports\SkFontDescriptor.cpp" />
+    <ClCompile Include="..\..\skia\src\ports\SkFontHost_sandbox_none.cpp" />
+    <ClCompile Include="..\..\skia\src\ports\SkFontHost_tables.cpp" />
+    <ClCompile Include="..\..\skia\src\ports\SkFontHost_win.cpp" />
+    <ClCompile Include="..\..\skia\src\ports\SkGlobalInitialization_default.cpp" />
+    <ClCompile Include="..\..\skia\src\ports\SkMemory_malloc.cpp" />
+    <ClCompile Include="..\..\skia\src\ports\SkOSFile_stdio.cpp" />
+    <ClCompile Include="..\..\skia\src\ports\SkThread_win.cpp" />
+    <ClCompile Include="..\..\skia\src\ports\SkXMLParser_empty.cpp" />
+    <ClCompile Include="..\..\skia\src\sfnt\SkOTUtils.cpp" />
+    <ClCompile Include="..\..\skia\src\xml\SkBML_XMLParser.cpp" />
+    <ClCompile Include="..\..\skia\src\xml\SkDOM.cpp" />
+    <ClCompile Include="..\..\skia\src\xml\SkXMLParser.cpp" />
+    <ClCompile Include="..\..\skia\src\xml\SkXMLWriter.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
